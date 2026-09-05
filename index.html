@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Askand Tech - Solusi Digital & Kreatif Terpercaya</title>
+    
+    <link rel="icon" type="image/png" href="logo_askandtech.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #070913;
+            --card-bg: #0f1423;
+            --theme-primary: #3b82f6; 
+            --theme-light: #93c5fd;
+            --theme-gradient: linear-gradient(135deg, #1d4ed8, #3b82f6, #06b6d4);
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+            --border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(6, 182, 212, 0.08) 0%, transparent 40%);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Container Utama (Mode Desktop / Horizontal Default) */
+        .main-container {
+            width: 100%;
+            max-width: 1100px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(59, 130, 246, 0.1);
+            overflow: hidden;
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        /* Header Section Desktop */
+        .header-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 20px;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .brand-logo-img {
+            height: 80px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 8px rgba(59, 130, 246, 0.4));
+        }
+
+        .hero-headline {
+            text-align: right;
+            max-width: 450px;
+        }
+
+        .hero-headline h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+
+        .hero-headline p {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        /* Grid Utama Desktop (2 Kolom Berdampingan) */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 30px;
+            align-items: stretch;
+        }
+
+        /* Services Section */
+        .services-section h3 {
+            font-size: 1rem;
+            color: var(--theme-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            border-left: 3px solid var(--theme-primary);
+            padding-left: 10px;
+        }
+
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .service-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .service-item:hover {
+            border-color: var(--theme-primary);
+            background: rgba(59, 130, 246, 0.05);
+            transform: translateY(-3px);
+        }
+
+        .service-item i {
+            font-size: 1.2rem;
+            color: var(--theme-light);
+            background: rgba(59, 130, 246, 0.15);
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+        }
+
+        .service-info h4 {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .service-info p {
+            font-size: 0.74rem;
+            color: var(--text-muted);
+            line-height: 1.3;
+        }
+
+        /* CTA Box Desktop */
+        .cta-box {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(15, 20, 35, 0.9));
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .cta-box i.rocket {
+            font-size: 2rem;
+            color: var(--theme-light);
+        }
+
+        .cta-box h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1.4;
+        }
+
+        .features-badges {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            font-size: 0.72rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 5px 10px;
+            border-radius: 20px;
+            color: var(--theme-light);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .badge i {
+            color: var(--theme-light);
+            font-size: 0.7rem;
+        }
+
+        .btn-order {
+            background: var(--theme-gradient);
+            color: #ffffff;
+            font-weight: 700;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+            font-size: 0.92rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-order:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+        }
+
+        /* Contacts Grid Desktop (4 Kolom Jejer ke Samping) */
+        .contacts-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 20px;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 12px 15px;
+            border-radius: 12px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            background: rgba(59, 130, 246, 0.08);
+            border-color: var(--theme-primary);
+        }
+
+        .contact-card i {
+            font-size: 1.3rem;
+            color: var(--theme-light);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-info .platform {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-info .value {
+            font-size: 0.78rem;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        /* Footer Tag */
+        .footer-tag {
+            text-align: center;
+            font-size: 0.68rem;
+            letter-spacing: 3px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        /* === OPTIMISASI KHUSUS MOBILE / LAYAR KECIL === */
+        @media (max-width: 900px) {
+            body {
+                padding: 12px;
+                align-items: center;
+            }
+            .main-container {
+                padding: 20px 14px;
+                max-width: 100%;
+                border-radius: 18px;
+                gap: 20px;
+            }
+            .header-section {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 14px;
+                padding-bottom: 16px;
+            }
+            .brand-logo-img {
+                height: 70px;
+            }
+            .hero-headline {
+                text-align: center;
+                max-width: 100%;
+            }
+            .hero-headline h2 {
+                font-size: 1.1rem;
+            }
+            .hero-headline p {
+                font-size: 0.78rem;
+            }
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .service-cards {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            .service-item {
+                padding: 12px;
+            }
+            .cta-box {
+                padding: 20px 15px;
+            }
+            .cta-box h3 {
+                font-size: 0.95rem;
+            }
+            .btn-order {
+                width: 100%;
+                padding: 12px 20px;
+                font-size: 0.88rem;
+            }
+            .contacts-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            .contact-card {
+                padding: 10px 12px;
+                gap: 10px;
+            }
+            .contact-card i {
+                font-size: 1.1rem;
+            }
+            .contact-info .platform {
+                font-size: 0.65rem;
+            }
+            .contact-info .value {
+                font-size: 0.72rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <div class="header-section">
+            <div class="brand-logo">
+                <img src="logo_askandtech.png" alt="Askand Tech Logo" class="brand-logo-img">
+            </div>
+            <div class="hero-headline">
+                <h2>Solusi Digital & Kreatif Terpercaya</h2>
+                <p>Kami menyediakan berbagai layanan profesional untuk mendukung kebutuhan personal maupun bisnis Anda.</p>
+            </div>
+        </div>
+
+        <div class="content-grid">
+            <div class="services-section">
+                <h3>Layanan Kami</h3>
+                <div class="service-cards">
+                    <div class="service-item">
+                        <i class="fa-solid fa-globe"></i>
+                        <div class="service-info">
+                            <h4>1. Pembuatan Website</h4>
+                            <p>Responsif, SEO friendly & modern.</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                        <div class="service-info">
+                            <h4>2. Aplikasi Android</h4>
+                            <p>Native/hybrid performa stabil.</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <i class="fa-solid fa-file-lines"></i>
+                        <div class="service-info">
+                            <h4>3. Pembuatan CV</h4>
+                            <p>ATS-friendly & desain kreatif.</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <i class="fa-solid fa-image"></i>
+                        <div class="service-info">
+                            <h4>4. Edit Gambar</h4>
+                            <p>Manipulasi & desain visual menarik.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <i class="fa-solid fa-rocket rocket"></i>
+                <h3>Hubungi Kami Sekarang untuk Penawaran Terbaik!</h3>
+                <div class="features-badges">
+                    <div class="badge"><i class="fa-solid fa-award"></i> Kualitas Terbaik</div>
+                    <div class="badge"><i class="fa-solid fa-tags"></i> Harga Bersahabat</div>
+                    <div class="badge"><i class="fa-solid fa-shield-halved"></i> Garansi Kepuasan</div>
+                </div>
+                <a href="https://wa.me/6282258588653" target="_blank" class="btn-order">
+                    <i class="fa-brands fa-whatsapp"></i> Konsultasi Sekarang
+                </a>
+            </div>
+        </div>
+
+        <div class="contacts-grid">
+            <a href="https://instagram.com/aditiaid29" target="_blank" class="contact-card">
+                <i class="fa-brands fa-instagram"></i>
+                <div class="contact-info">
+                    <span class="platform">Instagram</span>
+                    <span class="value">@aditiaid29</span>
+                </div>
+            </a>
+            <a href="https://wa.me/6282258588653" target="_blank" class="contact-card">
+                <i class="fa-brands fa-whatsapp"></i>
+                <div class="contact-info">
+                    <span class="platform">WhatsApp</span>
+                    <span class="value">082258588653</span>
+                </div>
+            </a>
+            <a href="https://askandtech.github.io" target="_blank" class="contact-card">
+                <i class="fa-solid fa-globe"></i>
+                <div class="contact-info">
+                    <span class="platform">Website</span>
+                    <span class="value">askandtech.github.io</span>
+                </div>
+            </a>
+            <a href="mailto:aditiyaiskandar29@gmail.com" class="contact-card">
+                <i class="fa-solid fa-envelope"></i>
+                <div class="contact-info">
+                    <span class="platform">Email</span>
+                    <span class="value">aditiyaiskandar29@...</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="footer-tag">
+            Teknologi &bull; Kreativitas &bull; Solusi &bull; Hasil Terbaik
+        </div>
+    </div>
+
+</body>
+</html>
